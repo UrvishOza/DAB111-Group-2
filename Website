@@ -1,0 +1,12 @@
+from flask import Flask, render_template_string, render_template
+from werkzeug.serving import run_simple
+
+@app.route('/')
+def home():
+    data_html = df.to_html(index=False)
+    return render_template_string('''
+    <!DOCTYPE html>
+    <html>
+    <head> <title>Printed Circuit Board Processed Image</title>
+</head>
+    <body>
