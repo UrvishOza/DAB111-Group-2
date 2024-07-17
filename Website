@@ -1,6 +1,8 @@
 from flask import Flask, render_template_string, render_template
 from werkzeug.serving import run_simple
 
+app = Flask(__name__,template_folder='.' )
+
 @app.route('/')
 def home():
     data_html = df.to_html(index=False)
@@ -10,3 +12,27 @@ def home():
     <head> <title>Printed Circuit Board Processed Image</title>
 </head>
     <body>
+    <h1>We Are Welcoming To Our Printed Circuit Board Process Image Project</h1>
+    <nav>
+     <ul> <li><a href="/"><button>Home</button></a></li> 
+          <li><a href="/about"><button>About</button></a></li>
+          <li><a href="/data"><button>Data</button></a></li>
+        </ul>
+    </nav>
+    <div> {{data|safe}} </div>
+</body>
+</html>
+''', data= data_html)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/data')
+def data():
+    con = sqlite3.connect('Printed_ckt.db')
+    c = con.cursor()
+    c.execute('SELECT * FROM Printed_ckt LIMIT 10')  
+    data = c.fetchall()
+    con.close()
+    return render_template('data.html', data=data)
