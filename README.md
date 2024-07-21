@@ -31,3 +31,24 @@ Download the requirement file and Enter below code
 `df= pd.read_csv("TestPad_PCB_XYRGB_V2.csv")`
 
 ## Above Code is to import necessary liberary And Read dataset csv File
+
+con = sqlite3.connect('Printed_circuit.db')
+cursor = con.cursor()
+
+create_table = """CREATE TABLE IF NOT EXISTS Printed_ckt
+                                    (ID INTPRIMARY KEY,
+                                    X INT,
+                                    Y INT,
+                                    R REAL,
+                                    G REAL,
+                                    B REAL,
+                                    Grey INT
+                                    );
+                                    """
+cursor.execute(create_table)
+df.to_sql('Printed_circuit', con, if_exists='replace', index=False)
+
+con.commit()
+con.close()
+
+## Above code is to create database schema in sqlite3 named Printed_circuit.db file also creat table in it if not exsited and insert the data that we read from the database csv file.
