@@ -51,4 +51,12 @@ df.to_sql('Printed_circuit', con, if_exists='replace', index=False)
 con.commit()
 con.close()
 
-## Above code is to create database schema in sqlite3 named Printed_circuit.db file also creat table in it if not exsited and insert the data that we read from the database csv file.
+Above code is to create database schema in sqlite3 named Printed_circuit.db file also creat table in it if not exsited and insert the data that we read from the database csv file.
+
+## The Next Step Is To Run Run the Flask application:
+After Sucessfully Run The Application Open your web browser and go to http://localhost:9100 to view the application.
+
+## Web Structure
+1. /: Home page with an introduction to the project and a sample of the data.
+2. /about: About page with information about the dataset.
+3. /data: Data page displaying a sample of the dataset from the SQLite database.
