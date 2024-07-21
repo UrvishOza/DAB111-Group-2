@@ -14,3 +14,20 @@ This is a Flask web application that demonstrates the use of a processed image d
 # Installation
 Download the requirement file and Enter below code
  `pip install -r requirements.txt`
+
+# Project Structure
+1. TestPad_PCB_XYRGB_V2.csv: The dataset file.
+2. Printed_circuit.db: The SQLite database file
+3. README.md: Project documentation.
+
+# Running the Website
+
+`import sqlite3`
+`import pandas as pd`
+`import csv`
+`from flask import Flask, render_template_string, render_template`
+`from werkzeug.serving import run_simple`
+
+`df= pd.read_csv("TestPad_PCB_XYRGB_V2.csv")`
+
+## Above Code is to import necessary liberary And Read dataset csv File
