@@ -1,6 +1,3 @@
-from flask import Flask, render_template_string, render_template
-from werkzeug.serving import run_simple
-
 app = Flask(__name__,template_folder='.' )
 
 @app.route('/')
@@ -66,12 +63,12 @@ def about():
             <p>Source: <a href="https://archive.ics.uci.edu/dataset/990/printed+circuit+board+processed+image">This Is The Source Of Our Data</a></p>
             <p>Type of variables:</p>
             <ul>
-                <li>X: Integer</li>
-                <li>Y: Integer</li>
-                <li>R: Continuous Variable</li>
-                <li>G: Continuous variable</li>
-                <li>B: Continuous variable</li>
-                <li>Grey: Binary</li>
+                <li>X: Integer : The dataset includes X representing pixel positions</li>
+                <li>Y: Integer : The dataset includes Y representing pixel positions</li>
+                <li>R: Continuous Variable : R values determining pixel color (minmax normalized from 0-255)</li>
+                <li>G: Continuous variable : G values determining pixel color (minmax normalized from 0-255)</li>
+                <li>B: Continuous variable : B values determining pixel color (minmax normalized from 0-255)</li>
+                <li>Grey: Binary : A 'Grey' field indicates approximate grey pixels</li>
             </ul>
         </div>
     </body>
